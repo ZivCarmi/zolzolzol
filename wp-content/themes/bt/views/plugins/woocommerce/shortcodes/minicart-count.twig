@@ -1,0 +1,9 @@
+<div class="cart-count">{% spaceless %}
+    {% if display_zero == 1 %}
+        {{ cart_items_count }}
+    {% else %}
+        {% if cart_items_count > 0 %}
+            {{ cart_items_count }}
+        {% endif %}
+    {% endif %}
+{% endspaceless %}</div>

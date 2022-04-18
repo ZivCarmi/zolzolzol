@@ -1,0 +1,14 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% include 'partials/main-banner.twig' %}
+
+	<div class="choose-company container-1140">
+		{% include 'partials/heading-with-toggle.twig' with {tag: 'h2', name: page.meta('choose_company_title'), toggle: false} %}
+		{% include 'partials/companies-grid.twig' with {companies: page.meta('choose_company'), as_checkboxes, no_animation} %}
+	</div>
+
+	<div class="disconnection-form container-1140">
+		{{ fn('do_shortcode', '[contact-form-7 id="194" title="טופס התנתקות מחברה"]') }}
+	</div>
+{% endblock %}

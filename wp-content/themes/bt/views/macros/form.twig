@@ -1,0 +1,72 @@
+{# Containers structure #}
+{# Input wrapper start #}
+{% macro input_label_start(placeholder, options) %}
+<div class="input-wrap{{ options.class ? ' ' ~ options.class : '' }}">
+  <label>
+    <span{{ options.use_label == false ? ' class="visually-hidden"' : '' }}>{{ options.label_as_placeholder ? placeholder : options.label }}</span>
+{% endmacro %}
+{# Input wrapper start - end #}
+
+{# Input wrapper end #}
+{% macro input_label_end() %}
+  </label>
+</div>
+{% endmacro %}
+{# Input wrapper end - end #}
+
+{# Submit wrapper start #}
+{% macro submit_wrap_start() %}
+<div class="input-wrap submit">
+{% endmacro %}
+{# Submit wrapper start - end #}
+
+{# Submit wrapper end #}
+{% macro submit_wrap_end() %}
+</div>
+{% endmacro %}
+{# Submit wrapper end - end #}
+{# Containers structure - end #}
+
+{# Fileds structure #}
+{# Basic input field #}
+{% macro input(name, type, placeholder, options) %}
+{{ _self.input_label_start(placeholder, options) }}    {% spaceless %}
+  {% if options.cf7 %}
+    {{ name }}
+  {% else %}
+    asdsaddasd
+  {% endif %}
+{% endspaceless %}
+
+{{ _self.input_label_end() }}
+{% endmacro %}
+{# Basic input field - end #}
+
+{# textarea field #}
+{% macro textarea(name, placeholder, options) %}
+{{ _self.input_label_start(placeholder, options) }}    {% spaceless %}
+  {% if options.cf7 %}
+    {{ name }}
+  {% else %}
+    asdsaddasd
+  {% endif %}
+{% endspaceless %}
+
+{{ _self.input_label_end() }}
+{% endmacro %}
+{# textarea field - end #}
+
+{# submit field #}
+{% macro submit(value, options) %}
+{{ _self.submit_wrap_start() }}  {% spaceless %}
+  {% if options.cf7 %}
+    {{ value }}
+  {% else %}
+    asdsaddasd
+  {% endif %}
+{% endspaceless %}
+
+{{ _self.submit_wrap_end() }}
+{% endmacro %}
+{# submit field - end #}
+{# Fileds structure - end #}

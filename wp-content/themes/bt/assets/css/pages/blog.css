@@ -1,0 +1,106 @@
+@import url('../import.css');
+
+.blog-page {
+    margin-top: 93px;
+}
+
+.blog-page .blog-title {
+    font-size: var(--fz70);
+    font-weight: var(--fw400);
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.blog-page .posts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 50px 30px;
+}
+
+.blog-page .posts .post a {
+    height: 100%;
+    display: grid;
+}
+
+.blog-page .post img {
+    width: 100%;
+    object-fit: cover;
+}
+
+.blog-page .post .post-title {
+    margin-top: 16px;
+    font-size: var(--fz25);
+    color: var(--blue);
+}
+
+.blog-page .post .wnm {
+    font-size: var(--fz14);
+    color: var(--gray3);
+    min-height: 49px;
+}
+
+.blog-page .post .read-more {
+    align-self: end;
+    justify-self: start;
+    display: inline-block;
+    margin-top: 11px;
+    font-size: var(--fz14);
+    font-weight: var(--fw700);
+    color: #fff;
+    background-color: var(--pink);
+    border-radius: 18px;
+    padding: 8px 19px;
+}
+
+.blog-page .pagination,
+.blog-page .pagination .pages-description,
+.blog-page .pagination .pages {
+    display: flex;
+    align-items: center;
+}
+
+.blog-page .pagination {
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 50px;
+}
+
+.blog-page .pagination .pages-description> :not(:last-child) {
+    margin-left: 5px;
+}
+
+.blog-page .pagination .pages> :not(:last-child) {
+    margin-left: 10px;
+}
+
+.blog-page .pagination .pages {
+    margin-top: 10px;
+}
+
+.blog-page .pagination .pages .current {
+    color: var(--pink);
+    font-weight: var(--fw700);
+}
+
+@media (max-width: 1023px) {
+    .blog-page {
+        margin-top: 50px;
+    }
+}
+
+@media (max-width: 767px) {
+    .blog-page .posts {
+        grid-template-columns: repeat(2, 1fr);
+        grid-gap: 30px;
+    }
+
+    .blog-page .post .post-title {
+        font-size: var(--fz20);
+    }
+}
+
+@media (max-width: 500px) {
+    .blog-page .posts {
+        grid-template-columns: 1fr;
+    }
+}

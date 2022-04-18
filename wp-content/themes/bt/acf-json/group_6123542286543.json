@@ -1,0 +1,330 @@
+{
+    "key": "group_6123542286543",
+    "title": "הגדרות חבילות (מוצרים)",
+    "fields": [
+        {
+            "key": "field_612b83b58cb5c",
+            "label": "מידע חבילה (תחת שם חבילה)",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_612b83c88cb5d",
+            "label": "שורות מידע",
+            "name": "s_package_info",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "הוספת תוכן",
+            "sub_fields": [
+                {
+                    "key": "field_612b83d48cb5e",
+                    "label": "פריסת תוכן",
+                    "name": "display_info_as",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "16",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "label": "תווית עם ערך",
+                        "content": "טקסט חופשי"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_61540d6dd3d9d",
+                    "label": "אייקון",
+                    "name": "icon",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_612b83d48cb5e",
+                                "operator": "==",
+                                "value": "label"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "10",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "wifi": "<span class=\"icon-wifi\"><\/span> אינטרנט",
+                        "phone": "<span class=\"icon-phone\"><\/span> טלפון",
+                        "television": "<span class=\"icon-television\"><\/span> טלויזיה",
+                        "message": "<span class=\"icon-message\"><\/span> הודעה",
+                        "sim_card": "<span class=\"icon-sim_card\"><\/span> סים",
+                        "router": "<span class=\"icon-router\"><\/span> ראוטר",
+                        "wallet": "<span class=\"icon-wallet\"><\/span> מחיר",
+                        "cog": "<span class=\"icon-cog\"><\/span> הגדרות",
+                        "download": "<span class=\"icon-download\"><\/span> הורדה",
+                        "info-circle": "<span class=\"icon-info-circle\"><\/span> מידע",
+                        "gift": "<span class=\"icon-gift\"><\/span> מתנה",
+                        "plane": "<span class=\"icon-plane\"><\/span> חו\"ל",
+                        "globe": "<span class=\"icon-globe\"><\/span> גלובוס",
+                        "shield": "<span class=\"icon-shield\"><\/span> הגנה",
+                        "calendar": "<span class=\"icon-calendar\"><\/span> תאריך"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_612b83f98cb60",
+                    "label": "ערך",
+                    "name": "value",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_612b83d48cb5e",
+                                "operator": "==",
+                                "value": "label"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "37",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_612b83fe8cb61",
+                    "label": "טקסט חופשי",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_612b83d48cb5e",
+                                "operator": "==",
+                                "value": "content"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "74",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                }
+            ]
+        },
+        {
+            "key": "field_612b8b9db25ed",
+            "label": "פרטי חבילה (לאחר לחיצה)",
+            "name": "",
+            "type": "accordion",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "open": 0,
+            "multi_expand": 0,
+            "endpoint": 0
+        },
+        {
+            "key": "field_612b8bc1b25ee",
+            "label": "שורות מידע",
+            "name": "b_package_info",
+            "type": "repeater",
+            "instructions": "",
+            "required": 0,
+            "conditional_logic": 0,
+            "wrapper": {
+                "width": "",
+                "class": "",
+                "id": ""
+            },
+            "collapsed": "",
+            "min": 0,
+            "max": 0,
+            "layout": "block",
+            "button_label": "הוספת תוכן",
+            "sub_fields": [
+                {
+                    "key": "field_612b8c07b25ef",
+                    "label": "פריסת תוכן",
+                    "name": "display_info_as",
+                    "type": "radio",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": 0,
+                    "wrapper": {
+                        "width": "20",
+                        "class": "",
+                        "id": ""
+                    },
+                    "choices": {
+                        "label": "תווית עם ערך",
+                        "content": "טקסט חופשי"
+                    },
+                    "allow_null": 0,
+                    "other_choice": 0,
+                    "default_value": "",
+                    "layout": "vertical",
+                    "return_format": "value",
+                    "save_other_choice": 0
+                },
+                {
+                    "key": "field_612b8c3cb25f0",
+                    "label": "תווית",
+                    "name": "label",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_612b8c07b25ef",
+                                "operator": "==",
+                                "value": "label"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_612b8c4ab25f1",
+                    "label": "ערך",
+                    "name": "value",
+                    "type": "text",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_612b8c07b25ef",
+                                "operator": "==",
+                                "value": "label"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "40",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "placeholder": "",
+                    "prepend": "",
+                    "append": "",
+                    "maxlength": ""
+                },
+                {
+                    "key": "field_612b8c52b25f2",
+                    "label": "טקסט חופשי",
+                    "name": "content",
+                    "type": "wysiwyg",
+                    "instructions": "",
+                    "required": 0,
+                    "conditional_logic": [
+                        [
+                            {
+                                "field": "field_612b8c07b25ef",
+                                "operator": "==",
+                                "value": "content"
+                            }
+                        ]
+                    ],
+                    "wrapper": {
+                        "width": "80",
+                        "class": "",
+                        "id": ""
+                    },
+                    "default_value": "",
+                    "tabs": "all",
+                    "toolbar": "full",
+                    "media_upload": 0,
+                    "delay": 0
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "product"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": "",
+    "modified": 1632915574
+}

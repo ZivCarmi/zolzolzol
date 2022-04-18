@@ -1,0 +1,117 @@
+@import url('../import.css');
+
+.not-frayer-page .form {
+    max-width: 900px;
+    width: 100%;
+    margin: auto;
+    padding: 40px;
+    background-color: var(--gray);
+    border-radius: 4px;
+}
+
+.not-frayer-page .form .pre-text {
+    text-align: center;
+}
+
+.not-frayer-page .form .wpcf7 {
+    margin-top: 30px;
+}
+
+.not-frayer-page .form .inputs-wrapper {
+    display: grid;
+    grid-gap: 30px;
+}
+
+.not-frayer-page .form .same-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 40px;
+}
+
+.not-frayer-page .form .select .wpcf7-form-control-wrap:before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 10px;
+    transform: translate(0, -50%) rotate(-45deg);
+}
+
+.not-frayer-page .form select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.not-frayer-page .form input:not([type="checkbox"]),
+.not-frayer-page .form select {
+    width: 100%;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all .1s ease-in-out;
+}
+
+.not-frayer-page .form input.wpcf7-not-valid {
+    border-color: var(--red-error);
+}
+
+.not-frayer-page .form input:not([type="submit"]) {
+    text-align: right;
+}
+
+.not-frayer-page .form .not-frayer-page .form .acceptance .wpcf7-list-item {
+    margin-right: 0;
+}
+
+.not-frayer-page .form .acceptance label {
+    display: flex;
+}
+
+.not-frayer-page .form .acceptance input {
+    margin-left: 6px;
+}
+
+.not-frayer-page .form .acceptance .wpcf7-list-item-label {
+    color: var(--blue);
+    font-size: var(--fz14);
+}
+
+.not-frayer-page .form .submit {
+    position: relative;
+}
+
+.not-frayer-page .form input[type="submit"] {
+    background-color: var(--pink);
+    color: #fff;
+    font-weight: var(--fw500);
+    font-size: var(--fz20);
+    transition: all 0.1s ease-in-out;
+}
+
+.not-frayer-page .form input[type="submit"]:disabled {
+    background-color: var(--pink-disabled);
+}
+
+.not-frayer-page .form .ajax-loader {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 120px);
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1023px) {
+    .not-frayer-page .form {
+        padding: 20px;
+    }
+
+    .not-frayer-page .form .pre-text {
+        font-size: var(--fz14);
+    }
+}

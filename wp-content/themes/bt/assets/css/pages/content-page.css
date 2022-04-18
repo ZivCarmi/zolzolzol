@@ -1,0 +1,90 @@
+@import url('../import.css');
+
+.content-page .title {
+    font-size: var(--fz70);
+    text-align: center;
+}
+
+.content-page .content {
+    line-height: 30px;
+}
+
+.content-page .form {
+    max-width: 900px;
+    width: 100%;
+    margin: 60px auto 0;
+    padding: 40px;
+    background-color: var(--gray);
+    border-radius: 4px;
+}
+
+.content-page .form .form-title {
+    font-size: var(--fz24);
+    margin-bottom: 35px;
+    text-align: center;
+}
+
+.content-page .form .inputs-wrapper {
+    display: grid;
+    grid-gap: 30px;
+}
+
+.content-page .form input,
+.content-page .form select {
+    height: 50px;
+}
+
+.content-page .form input,
+.content-page .form select,
+.content-page .form textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all .1s ease-in-out;
+}
+
+.content-page .form select {
+    color: rgb(117, 117, 117);
+}
+
+.content-page .form input.wpcf7-not-valid {
+    border-color: var(--red-error);
+}
+
+.content-page .form input:not([type="submit"]) {
+    text-align: right;
+}
+
+.content-page .form .submit {
+    position: relative;
+}
+
+.content-page .form input[type="submit"] {
+    background-color: var(--pink);
+    color: #fff;
+    font-weight: var(--fw500);
+    font-size: var(--fz20);
+    transition: all 0.1s ease-in-out;
+}
+
+.content-page .form input[type="submit"]:disabled {
+    background-color: var(--pink-disabled);
+}
+
+.content-page .form .ajax-loader {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 120px);
+    transform: translate(-50%, -50%);
+}
+
+@media (max-width: 1023px) {
+    .content-page .title {
+        font-size: var(--fz35);
+    }
+
+    .content-page .form {
+        padding: 20px;
+    }
+}

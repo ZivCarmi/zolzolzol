@@ -1,0 +1,26 @@
+{% import 'macros/posts.twig' as _posts %}
+
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% include 'partials/main-banner.twig' %}
+
+	<div class="blog-page container-1140">
+		<ul class="posts">
+			{% for post in posts %}
+				<li class="post">
+					<a href="{{ urldecode(get_the_permalink(post.id)) }}">
+						<img src="{{ Image(post._thumbnail_id).src }}" alt="{{ Image(post._thumbnail_id).alt }}" width="360" height="200" loading="lazy">
+						<h4 class="post-title">{{ post.post_title }}</h4>
+						<div class="wnm">{{ fn('wp_trim_words', post.post_content, 23) }}</div>
+						<span class="read-more">{{ esc_html__('קרא עוד', 'bt') }}</span>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+
+		{{ _posts._pagination(pagination) }}
+	</div>
+
+	{% include 'partials/newsletter.twig' %}
+{% endblock %}

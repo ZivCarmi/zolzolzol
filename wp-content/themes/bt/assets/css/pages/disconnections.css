@@ -1,0 +1,261 @@
+@import url('../import.css');
+
+.choose-company {
+    margin-top: 90px;
+}
+
+.choose-company .company label {
+    display: grid;
+}
+
+.choose-company .company label>* {
+    grid-area: 1/1/2/2;
+}
+
+.choose-company .company label [type="checkbox"] {
+    position: relative;
+    z-index: 1;
+    top: 5px;
+    right: 5px;
+}
+
+.disconnection-form .wpcf7 {
+    display: none;
+}
+
+.disconnection-form {
+    margin-top: 100px;
+    margin-bottom: 90px;
+}
+
+.disconnection-form .disconnection-form-inner {
+    display: grid;
+    grid-template-columns: 380px 1fr;
+}
+
+.disconnection-form .fill-form-mobile {
+    display: none;
+}
+
+.disconnection-form .fill-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: var(--blue);
+    padding: 40px 88px 53px 33px;
+    color: #fff;
+}
+
+.disconnection-form .fill-form .fill-form-title {
+    font-size: var(--fz45);
+}
+
+.disconnection-form .fill-form .acceptance {
+    max-width: 178px;
+}
+
+.disconnection-form .fill-form .acceptance .wpcf7-list-item {
+    margin: 0;
+}
+
+.disconnection-form .fill-form .acceptance input[type="checkbox"] {
+    display: block;
+    width: 16px;
+    height: 16px;
+    margin-bottom: 8px;
+}
+
+.disconnection-form .fill-form .acceptance .wpcf7-list-item-label {
+    font-size: var(--fz12);
+}
+
+.disconnection-form .account-info {
+    background-color: var(--gray);
+    padding: 37px 60px 50px 106px;
+}
+
+.disconnection-form .account-info .account-info-title {
+    font-size: var(--fz30);
+    margin-bottom: 30px;
+}
+
+.disconnection-form .account-info .inputs-wrapper {
+    display: grid;
+    grid-gap: 12px;
+}
+
+.disconnection-form .account-info .input-label {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+
+.disconnection-form .account-info .dc-account-type .wpcf7-form-control {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.disconnection-form .account-info .dc-account-type .wpcf7-list-item {
+    margin: 0;
+}
+
+.disconnection-form .account-info .dc-account-type label {
+    display: flex;
+    align-items: center;
+}
+
+.disconnection-form .account-info .dc-account-type input {
+    margin-left: 6px;
+}
+
+.disconnection-form .account-info input::-webkit-outer-spin-button,
+.disconnection-form .account-info input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+.disconnection-form .account-info input[type=number] {
+    -moz-appearance: textfield;
+}
+
+.disconnection-form .account-info .same-row {
+    display: grid;
+    grid-template-columns: 1fr 130px;
+    grid-gap: 5px;
+}
+
+.disconnection-form .account-info .areacode .wpcf7-form-control-wrap::before,
+.disconnection-form .account-info .service-type .wpcf7-form-control-wrap::before {
+    content: '';
+    display: block;
+    width: 8px;
+    height: 8px;
+    border-left: 2px solid var(--blue);
+    border-bottom: 2px solid var(--blue);
+    position: absolute;
+    top: calc(50% - 1px);
+    left: 10px;
+    transform: translate(0, -50%) rotate(-45deg);
+}
+
+.disconnection-form .account-info input:not([type="radio"]),
+.disconnection-form .account-info select {
+    width: 100%;
+    height: 36px;
+    border: none;
+    font-size: var(--fz14);
+    padding: 5px 25px;
+    border: 1px solid transparent;
+    transition: all .1s ease-in-out;
+}
+
+.disconnection-form .account-info .input-wrap .wpcf7-not-valid {
+    border: 1px solid var(--red-error);
+}
+
+.disconnection-form .account-info .input-wrap:not(.submit) input {
+    text-align: right;
+}
+
+.disconnection-form .account-info select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    text-indent: 1px;
+    text-overflow: '';
+}
+
+.disconnection-form .account-info .input-wrap.submit {
+    margin-top: 20px;
+    position: relative;
+}
+
+.disconnection-form .account-info .input-wrap.submit input {
+    background-color: rgb(224 102 186);
+    color: #fff;
+    border-radius: 18px;
+    transition: all .1s ease-in-out;
+}
+
+.disconnection-form .account-info .input-wrap.submit input:disabled {
+    background-color: var(--pink-disabled);
+}
+
+.disconnection-form .account-info .input-wrap.submit .ajax-loader {
+    position: absolute;
+    top: 50%;
+    left: calc(50% - 50px);
+    transform: translate(-50%, -50%);
+    margin: 0;
+}
+
+@media (max-width: 1023px) {
+    .disconnection-form {
+        margin-top: 50px;
+    }
+
+    .disconnection-form .disconnection-form-inner {
+        grid-template-columns: 1fr;
+    }
+
+    .disconnection-form .fill-form-mobile {
+        display: block;
+        background-color: var(--blue);
+        color: #fff;
+        padding: 20px 60px;
+        text-align: center;
+    }
+
+    .disconnection-form .fill-form-mobile>* {
+        margin: 0;
+    }
+
+    .disconnection-form .fill-form {
+        background-color: var(--gray);
+        padding: 0 60px 50px;
+        color: var(--blue);
+        order: 1;
+    }
+
+    .disconnection-form .fill-form .fill-form-title {
+        display: none;
+    }
+
+    .disconnection-form .fill-form .acceptance {
+        max-width: 100%;
+    }
+
+    .disconnection-form .fill-form .acceptance input[type="checkbox"] {
+        flex-shrink: 0;
+        margin: 0 0 0 8px;
+    }
+
+    .disconnection-form .fill-form .acceptance label {
+        display: flex;
+    }
+
+    .disconnection-form .account-info {
+        padding: 37px 60px 30px;
+    }
+}
+
+@media (max-width: 767px) {
+    .disconnection-form .fill-form-mobile {
+        padding: 30px;
+    }
+
+    .disconnection-form .account-info {
+        padding: 30px;
+    }
+
+    .disconnection-form .account-info .input-label {
+        grid-template-columns: 1fr;
+        grid-gap: 6px;
+    }
+
+    .disconnection-form .account-info .account-info-title {
+        font-size: var(--fz22);
+    }
+
+    .disconnection-form .fill-form {
+        padding: 0 30px 30px;
+    }
+}

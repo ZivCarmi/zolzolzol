@@ -1,0 +1,203 @@
+@import url('../import.css');
+
+.single .single-inner {
+    display: grid;
+    grid-template-columns: 69% 29%;
+    justify-content: space-between;
+}
+
+.single-inner .content {
+    line-height: 23px;
+}
+
+.single-inner .content table {
+    border: 1px solid #000;
+    border-spacing: 0;
+}
+
+.single-inner .content table tbody>tr:not(:last-child) td {
+    border-bottom: 1px solid #000;
+}
+
+.single-inner .content table tbody>tr td {
+    padding: 5px;
+}
+
+.single-inner .content table tbody>tr td:not(:last-child) {
+    border-left: 1px solid #000;
+}
+
+.single-inner .sidebar .title {
+    background-color: var(--blue);
+    color: #fff;
+    font-weight: var(--fw400);
+    padding: 10px;
+    border-bottom: 5px solid var(--pink);
+    text-align: center;
+    margin-bottom: 12px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.single-inner .sidebar .shop-categories-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px 10px;
+}
+
+.single-inner .shop-categories .shop-category {
+    background-color: var(--pink);
+    color: #fff;
+    font-weight: var(--fw500);
+    text-align: center;
+    border-radius: 4px;
+}
+
+.single-inner .shop-categories .shop-category a {
+    display: block;
+    padding: 10px;
+    min-height: 42px;
+    transition: all .15s ease-in-out;
+}
+
+.single-inner .shop-categories .shop-category a:hover {
+    transform: scale(0.9);
+}
+
+.single-inner .sidebar .posts {
+    margin-top: 50px;
+}
+
+.single-inner .sidebar .posts-list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 15px 20px;
+}
+
+.single-inner .posts .post {
+    color: var(--gray3);
+    font-size: var(--fz14);
+}
+
+.single-inner .posts .post a {
+    display: block;
+    overflow: hidden;
+}
+
+.single-inner .posts .post img {
+    width: 100%;
+    height: 89px;
+    object-fit: cover;
+    margin-bottom: 7px;
+    transition: all .3s ease-in-out;
+}
+
+.single-inner .posts .post img:hover {
+    transform: scale(1.04);
+}
+
+.single-inner .form {
+    background-color: var(--gray);
+    padding: 40px;
+    border-radius: 4px;
+    margin-top: 50px;
+}
+
+.single-inner .form .title {
+    font-size: var(--fz25);
+    font-weight: var(--fw700);
+    text-align: center;
+}
+
+.single-inner .form .subtitle {
+    font-size: var(--fz18);
+    text-align: center;
+}
+
+.companies-list .company img {
+    height: 80px;
+}
+
+.single-inner .form .wpcf7 {
+    margin-top: 40px;
+}
+
+.single-inner .form .inputs-wrapper {
+    display: grid;
+    grid-gap: 30px;
+}
+
+.single-inner .form .wpcf7 input {
+    height: 50px;
+    padding: 10px;
+    border: none;
+    border-radius: 4px;
+}
+
+.single-inner .form .select-companies .bt-error,
+.single-inner .form .wpcf7 input+.wpcf7-not-valid-tip {
+    display: block;
+    margin-top: 4px;
+    color: var(--red-error);
+    font-size: var(--fz14);
+}
+
+.single-inner .form .wpcf7 input:not([type="submit"]) {
+    text-align: right;
+}
+
+.single-inner .form .wpcf7 [type="submit"] {
+    background-color: var(--pink);
+    color: #fff;
+    font-weight: var(--fw500);
+    font-size: var(--fz20);
+}
+
+@media (max-width: 1023px) {
+    .single .single-inner {
+        grid-template-columns: 1fr;
+        grid-gap: 50px;
+    }
+
+    .single-inner .content table {
+        width: 100%;
+    }
+
+    .single-inner .sidebar {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 50px;
+    }
+
+    .single-inner .sidebar .posts {
+        margin-top: 0;
+    }
+
+    .single-inner .form {
+        max-width: 800px;
+        width: 100%;
+        margin-top: 0;
+        justify-self: center;
+        padding: 20px;
+    }
+}
+
+@media (max-width: 767px) {
+    .single-inner .sidebar {
+        grid-template-columns: 1fr;
+    }
+
+    .companies-list .company img {
+        height: 13vw;
+    }
+}
+
+@media (max-width: 500px) {
+    .single-inner .content table {
+        font-size: var(--fz12);
+    }
+
+    .companies-list .company img {
+        height: 15vw;
+    }
+}

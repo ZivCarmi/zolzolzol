@@ -1,0 +1,17 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% include 'partials/main-banner.twig' %}
+
+	<div class="not-frayer-page container-1140">
+		<div class="form">
+			<div class="pre-text">
+				<div class="content wnm">{{ page.meta('pre_text') }}</div>
+			</div>
+
+			{{ fn('do_shortcode', '[contact-form-7 id="501" title="טופס לא פראייר"]') }}
+		</div>
+	</div>
+
+	{% include 'partials/newsletter.twig' %}
+{% endblock %}

@@ -1,0 +1,314 @@
+@import url('../import.css');
+
+.compare-packages .my-compares {
+    display: grid;
+}
+
+.compare-packages .my-compares>* {
+    grid-area: 1/1/2/2;
+}
+
+.compare-packages .my-compares .no-packages {
+    font-weight: var(--fw500);
+    font-size: var(--fz18);
+}
+
+.lds-roller {
+    align-self: center;
+    justify-self: center;
+    display: inline-block;
+    position: relative;
+    width: 80px;
+    height: 80px;
+}
+
+.lds-roller div {
+    animation: lds-roller 1.2s cubic-bezier(0.5, 0, 0.5, 1) infinite;
+    transform-origin: 40px 40px;
+}
+
+.lds-roller div:after {
+    content: " ";
+    display: block;
+    position: absolute;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-color: var(--blue);
+    margin: -4px 0 0 -4px;
+}
+
+.lds-roller div:nth-child(1) {
+    animation-delay: -0.036s;
+}
+
+.lds-roller div:nth-child(1):after {
+    top: 63px;
+    left: 63px;
+}
+
+.lds-roller div:nth-child(2) {
+    animation-delay: -0.072s;
+}
+
+.lds-roller div:nth-child(2):after {
+    top: 68px;
+    left: 56px;
+}
+
+.lds-roller div:nth-child(3) {
+    animation-delay: -0.108s;
+}
+
+.lds-roller div:nth-child(3):after {
+    top: 71px;
+    left: 48px;
+}
+
+.lds-roller div:nth-child(4) {
+    animation-delay: -0.144s;
+}
+
+.lds-roller div:nth-child(4):after {
+    top: 72px;
+    left: 40px;
+}
+
+.lds-roller div:nth-child(5) {
+    animation-delay: -0.18s;
+}
+
+.lds-roller div:nth-child(5):after {
+    top: 71px;
+    left: 32px;
+}
+
+.lds-roller div:nth-child(6) {
+    animation-delay: -0.216s;
+}
+
+.lds-roller div:nth-child(6):after {
+    top: 68px;
+    left: 24px;
+}
+
+.lds-roller div:nth-child(7) {
+    animation-delay: -0.252s;
+}
+
+.lds-roller div:nth-child(7):after {
+    top: 63px;
+    left: 17px;
+}
+
+.lds-roller div:nth-child(8) {
+    animation-delay: -0.288s;
+}
+
+.lds-roller div:nth-child(8):after {
+    top: 56px;
+    left: 12px;
+}
+
+@keyframes lds-roller {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.compare-packages .compare-content {
+    display: none;
+}
+
+.compare-packages .all-compares {
+    display: grid;
+    grid-gap: 75px;
+    transition: all .3s ease-in-out;
+}
+
+.my-compares .all-compares.working {
+    opacity: .6;
+}
+
+.compare-packages .packages-list .products {
+    margin-top: 30px;
+}
+
+.product .remove-package {
+    position: absolute;
+    top: 50%;
+    right: calc(100% + 5px);
+    transform: translate(0, -50%);
+    z-index: 1;
+    color: var(--red-error);
+    padding: 10px;
+}
+
+.product .main-block {
+    display: grid;
+    grid-template-columns: 200px minmax(0, 605px) auto;
+    align-items: center;
+    padding: 25px;
+    position: relative;
+}
+
+.product .main-block .check-package {
+    position: absolute;
+    top: 50%;
+    right: 16px;
+    transform: translate(0, -50%);
+}
+
+.product .main-block .check-package [type="checkbox"] {
+    display: none;
+}
+
+.product .main-block .check-package .custom-cb {
+    display: grid;
+    cursor: pointer;
+    border: 1px solid var(--pink);
+    width: 34px;
+    height: 30px;
+    justify-items: center;
+    align-items: center;
+}
+
+.product .main-block .check-package [type="checkbox"]:checked+.custom-cb:after {
+    content: '';
+    width: 17px;
+    height: 6px;
+    border-bottom: 3px solid var(--blue);
+    border-left: 3px solid var(--blue);
+    display: block;
+    transform: rotate(-55deg);
+    grid-area: 1/1/1/1;
+    position: relative;
+    top: -2px;
+}
+
+.compare-packages .compare-content .form {
+    max-width: 800px;
+    margin: 50px auto 0;
+    background-color: var(--gray);
+    padding: 40px;
+    border-radius: 4px;
+    position: relative;
+}
+
+.compare-packages .compare-content .form .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(255, 255, 255, .65);
+    font-size: var(--fz30);
+    font-weight: var(--fw700);
+    color: var(--blue);
+    text-align: center;
+}
+
+.compare-packages .compare-content .form .form-title {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.compare-packages .compare-content .form .form-inner {
+    max-width: 570px;
+    margin: auto;
+}
+
+.compare-packages .compare-content .form .inputs-wrapper {
+    display: grid;
+    grid-gap: 15px;
+    max-width: 570px;
+    margin: auto;
+}
+
+.compare-packages .compare-content .form input {
+    height: 50px;
+    padding: 10px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: all .2s ease-in-out;
+}
+
+.compare-packages .compare-content .form input.wpcf7-not-valid {
+    border: 1px solid var(--red-error);
+}
+
+.compare-packages .compare-content .form input:not([type="submit"]) {
+    text-align: right;
+}
+
+.compare-packages .compare-content .form .submit {
+    position: relative;
+}
+
+.compare-packages .compare-content .form [type="submit"] {
+    background-color: var(--pink);
+    color: #fff;
+    font-weight: var(--fw500);
+    font-size: var(--fz20);
+}
+
+.compare-packages .compare-content .form .submit .ajax-loader {
+    position: absolute;
+    top: 50%;
+    right: calc(50% + 40px);
+    transform: translate(0, -50%);
+}
+
+@media (max-width: 1367px) {
+    .product .remove-package {
+        top: 0;
+        right: initial;
+        left: -8px;
+        background-color: #fff;
+        border: 1px solid var(--red-error);
+        border-radius: 100%;
+        width: 30px;
+        height: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1023px) {
+    .compare-packages .my-compares .no-packages {
+        text-align: center;
+    }
+
+    .lds-roller {
+        position: fixed;
+        z-index: 11;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .product .main-block .check-package {
+        position: absolute;
+        top: initial;
+        bottom: 0;
+        right: 15px;
+        transform: translate(0, -50%);
+    }
+
+    .compare-packages .product .mid-column .to-join {
+        grid-area: 2/2;
+    }
+
+    .compare-packages .product .to-join .toggle-package {
+        margin-right: auto;
+    }
+}

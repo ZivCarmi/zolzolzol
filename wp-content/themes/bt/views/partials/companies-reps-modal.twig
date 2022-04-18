@@ -1,0 +1,21 @@
+<div class="companies-reps">
+	<h3 class="title">{{ esc_html__('בחר בחברות שברצונך לקבל מהן הצעות', 'bt') }}</h2>
+	<ul class="companies-list">
+		{% for company in companies %}
+			{% set image_id = Image(get_term_meta(company.term_id, 'company_logo', true)) %}
+			<li class="company">
+				<label>
+					<input type="checkbox" name="{{ company.name }}">
+					<img src="{{ Image(image_id).src }}" alt="{{ Image(image_id).alt }}">
+				</label>
+			</li>
+		{% endfor %}
+	</ul>
+</div>
+<div class="form">
+	<h3 class="title">{{ esc_html__('פרטים ליצירת קשר', 'bt') }}</h2>
+	<script>
+		const category = '{{ category }}';
+	</script>
+	{{ fn('do_shortcode', '[contact-form-7 id="317" title="טופס הצעות מחברות"]') }}
+</div>

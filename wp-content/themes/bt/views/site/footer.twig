@@ -1,0 +1,58 @@
+</main>
+
+<footer class="site-footer" {{ options.footer_bgc ? 'style="background-color:' ~ options.footer_bgc ~ ';"' : '' }}>
+
+	<div class="footer-inner container-1140">
+		<div class="sitemap">
+			<h4 class="sitemap-title title">{{ options.sitemap_footer_title }}</h4>
+			<nav>
+				{% include 'components/nav-menu.twig' with {items: bt.menus.footer.get_items} %}
+			</nav>
+		</div>
+
+		<div class="about-us">
+			<h4 class="about-us-title title">{{ options.about_us_footer_title }}</h4>
+			<div class="content wnm">{{ options.about_us_footer_content }}</div>
+		</div>
+
+		<div class="logo">
+			<a href="{{ constant('BPATH') }}" title="דף הבית">
+				<img src="{{ Image(options.footer_logo.id).src }}" alt="{{ Image(options.footer_logo.id).alt }}">
+				<div class="custom-logo">{{ options.logo_text }}</div>
+			</a>
+		</div>
+	</div>
+
+	{% include 'site/simplyad-logo.twig' with {title: bt.simplyad.title} %}
+</footer>
+
+<div class="popups-overlay"></div>
+<div class="site-modal">
+	<button type="button" class="exit-modal">
+		<span>X</span>
+	</button>
+	<div class="modal-inner">
+		{% do action('bt_modal') %}
+	</div>
+</div>
+
+{% if is_product_category() or is_product() %}
+	<div class="site-modal share-modal">
+		<button type="button" class="exit-modal">
+			<span>X</span>
+		</button>
+		<div class="modal-inner">
+			<div class="share-package">
+				<a class="facebook" href="https://www.facebook.com/sharer/sharer.php?u=" target="_blank">
+					<span class="icon-facebook"></span>
+				</a>
+				<a class="whatsapp" href="https://api.whatsapp.com/send?text=היי, מצאתי חבילה שאולי תעניין אותך https://sellzoll.simplyad.co.il/cellular/%d7%a1%d7%9c%d7%95%d7%9c%d7%a8-3/" target="_blank">
+					<span class="icon-whatsapp"></span>
+				</a>
+			</div>
+		</div>
+	</div>
+{% endif %}
+
+{{ fn('wp_footer') }}
+{% do action('bt_html_body_end') %}</body></html>

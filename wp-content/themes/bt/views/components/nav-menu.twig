@@ -1,0 +1,27 @@
+{% if items %}
+	<ul class="{{ child ? 'submenu' : 'menu' }}">
+		{% for item in items if not break %}
+			<li class="{{ item.classes|join(' ') }}">
+				{% if item.children %}
+					<div class="link-wrap">
+						<a target="{{ item.target ? item.target : '_self' }}" href="{{ item.link }}">
+							{% if item.id == 360 %}
+								<span class="count"></span>
+							{% endif %}
+							{{ item.title }}
+						</a>
+						<span class="icon-chevron-down"></span>
+					</div>
+					{% include 'components/nav-menu.twig' with {items: item.children, child: true} %}
+				{% else %}
+					<a target="{{ item.target ? item.target : '_self' }}" href="{{ item.link }}">
+						{% if item.id == 360 %}
+							<span class="count"></span>
+						{% endif %}
+						{{ item.title }}
+					</a>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+{% endif %}

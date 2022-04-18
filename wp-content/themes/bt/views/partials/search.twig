@@ -1,0 +1,11 @@
+<form method="GET" action="{{ get_permalink(fn('wc_get_page_id ', 'shop')) }}">
+	<div class="form-inner">
+		<input type="text" name="s" placeholder="{{ options.search_placeholder ? options.search_placeholder : 'חיפוש חופשי' }}">
+		<button class="submit" type="submit">
+			<span class="icon-search"></span>
+		</button>
+		<button class="close" type="button">
+			<span class="icon-x"></span>
+		</button>
+	</div>
+</form>

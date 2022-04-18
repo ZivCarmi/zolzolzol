@@ -1,0 +1,43 @@
+{% set page_id = is_product_category() ? get_queried_object().term_id : get_queried_object().ID %}
+
+{% if not is_product_category() %}
+	{% if not is_tax() %}
+		{% set bgc = get_post_meta(page_id, 'partial_banner_banner_bgc', true) %}
+		{% set title = get_post_meta(page_id, 'partial_banner_page_title', true) ? get_post_meta(page_id, 'partial_banner_page_title', true) : get_queried_object().post_title %}
+		{% set subtitle = get_post_meta(page_id, 'partial_banner_page_subtitle', true) %}
+		{% set banner = get_post_meta(page_id, 'partial_banner_banner', true) %}
+	{% endif %}
+{% else %}
+	{% set bgc = bgc ? bgc : get_term_meta(page_id, 'partial_banner_banner_bgc', true) %}
+	{% set title = title ? title : get_term_meta(page_id, 'partial_banner_page_title', true) ? get_term_meta(page_id, 'partial_banner_page_title', true) : get_queried_object().name %}
+	{% set subtitle = subtitle ? subtitle : get_term_meta(page_id, 'partial_banner_page_subtitle', true) %}
+	{% set banner = banner ? banner : get_term_meta(page_id, 'partial_banner_banner', true) %}
+{% endif %}
+
+{% if not banner %}
+	{% set banner = fn('get_option', 'options_default_banner') %}
+{% endif %}
+
+<div class="page-banner">
+	<div class="main-banner">
+		<div class="main-banner-inner">
+			<div class="page-description" style="background-color:{{ bgc ? bgc : 'var(--blue)' }};">
+				<div class="page-description-inner">
+					<h1 class="page-title">{{ title }}</h1>
+					{% if subtitle %}
+						<h2 class="page-subtitle">{{ subtitle }}</h2>
+					{% endif %}
+				</div>
+			</div>
+			<div class="image">
+				<img src="{{ Image(banner).src }}" alt="{{ Image(banner).alt }}">
+			</div>
+		</div>
+	</div>
+
+	<div class="breadcrumbs">
+		<div class="container-1140">
+			{% do action('bt_breadcrumbs') %}
+		</div>
+	</div>
+</div>

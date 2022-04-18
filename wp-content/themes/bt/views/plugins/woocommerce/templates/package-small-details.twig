@@ -1,0 +1,14 @@
+<div class="package-small-info">
+	<ul class="small-info-list">
+		{% for package_info in small_package_info %}
+			<li>
+				<span class="icon-{{ package_info.icon }}"></span>
+				{% if package_info.display_info_as == 'label' %}
+					<span class="value">{{ package_info.value }}</span>
+				{% elseif package_info.display_info_as == 'content' %}
+					<div class="content wnm">{{ package_info.content }}</div>
+				{% endif %}
+			</li>
+		{% endfor %}
+	</ul>
+</div>

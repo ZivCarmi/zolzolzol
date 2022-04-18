@@ -1,0 +1,38 @@
+{% macro _pagination(pagination) %}
+	{% if pagination.pages %}
+		<div class="pagination">
+			<div class="pages-description">
+				<span class="text">{{ esc_html__('מציג תוצאות', 'bt') }}</span>
+				<span class="num">{{ pagination.posts_start_count }}</span>
+				<span class="text">-</span>
+				<span class="num">{{ pagination.posts_end_count }}</span>
+				<span class="text">{{ esc_html__('מתוך', 'bt') }}</span>
+				<span class="num">{{ pagination.all }}</span>
+			</div>
+
+			<ul class="pages">
+				{% if pagination.prev %}
+					<li>
+						<a href="{{pagination.prev.link}}" class="prev{{pagination.prev.link|length ? '' : ' invisible'}}">{{ esc_html__('עמוד קודם', 'bt') }}</a>
+					</li>
+				{% endif %}
+
+				{% for page in pagination.pages %}
+					<li>
+						{% if page.link %}
+							<a href="{{page.link}}" class="{{page.class}}">{{page.title}}</a>
+						{% else %}
+							<span class="{{page.class}}">{{page.title}}</span>
+						{% endif %}
+					</li>
+				{% endfor %}
+
+				{% if pagination.next %}
+					<li>
+						<a href="{{pagination.next.link}}" class="next{{pagination.next.link|length ? '' : ' invisible'}}">{{ esc_html__('עמוד הבא', 'bt') }}</a>
+					</li>
+				{% endif %}
+			</ul>
+		</div>
+	{% endif %}
+{% endmacro %}

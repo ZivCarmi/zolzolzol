@@ -1,0 +1,29 @@
+{% import 'macros/form.twig' as form %}
+[honeypot website]
+{{
+  form.input('[text* full_name placeholder "' ~ esc_html__('שם מלא:', 'bt') ~ '"]', null, esc_html__('שם מלא:', 'bt'), {
+    cf7: true,
+    label_as_placeholder: true,
+    class: 'name'
+  })
+}}{{
+  form.input('[tel* phone placeholder "' ~ esc_html__('טלפון:', 'bt') ~ '"]', null, esc_html__('טלפון:', 'bt'), {
+    cf7: true,
+    label_as_placeholder: true,
+    class: 'phone'
+  })
+}}{{
+  form.input('[email* email placeholder "' ~ esc_html__('אימייל:', 'bt') ~ '"]', null, esc_html__('אימייל:', 'bt'), {
+    cf7: true,
+    label_as_placeholder: true,
+    class: 'email'
+  })
+}}{{
+  form.textarea('[textarea* message placeholder "' ~ esc_html__('הודעה:', 'bt') ~ '"]', esc_html__('הודעה:', 'bt'), {
+    cf7: true,
+    label_as_placeholder: true,
+    class: 'message'
+  })
+}}{{
+  form.submit('[submit "' ~ esc_html__('שלח', 'bt') ~ '"]', {cf7: true})
+}}

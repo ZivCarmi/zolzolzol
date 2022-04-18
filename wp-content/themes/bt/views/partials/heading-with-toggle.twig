@@ -1,0 +1,34 @@
+{% set tag = tag ?? 'div' %}
+
+{% set toggle = toggle is same as(false) ? false : true %}
+
+{% set thumbnail = thumbnail_id ? '<img class="thumbnail" src="' ~ Image(thumbnail_id).src ~ '" alt="' ~ Image(thumbnail_id).alt ~ '">' : null %}
+
+{% set colors_inverted = colors_inverted is same as(true) ? true : false %}
+
+<div class="heading-with-toggle">
+	<{{tag}} class="name" style="background-color:{{ colors_inverted ? 'var(--blue)' : 'var(--pink)' }};">
+		{% if link %}
+			{{thumbnail}}
+			<a href="{{ link }}">{{ name }}</a>
+			{% if subtitle %}
+				<div class="subtitle">{{ subtitle }}</div>
+			{% endif %}
+		{% else %}
+			{{thumbnail}}
+			<span>{{ name }}</span>
+			{% if subtitle %}
+				<div class="subtitle">{{ subtitle }}</div>
+			{% endif %}
+		{% endif %}
+	</{{tag}}>
+	<div class="square" style="background-color:{{ colors_inverted ? 'var(--pink)' : 'var(--blue)' }};">
+		{% if toggle is same as(false) %}
+			<div class="empty-square"></div>
+		{% else %}
+			<button type="button" class="toggle-cat">
+				<span class="icon-chevron-up"></span>
+			</button>
+		{% endif %}
+	</div>
+</div>

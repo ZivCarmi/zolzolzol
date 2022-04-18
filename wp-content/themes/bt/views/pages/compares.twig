@@ -1,0 +1,22 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% include 'partials/main-banner.twig' %}
+
+	<div class="compare-packages container-1140">
+		<div class="my-compares">
+			<div class="compare-content">
+				<div class="compared-packages"></div>
+				<div class="form">
+					<div class="overlay">{{ esc_html__('יש לבחור לפחות חבילה אחת לפני שליחת הטופס', 'bt') }}</div>
+					<div class="form-inner">
+						<h2 class="form-title">{{ esc_html__('השאירו פרטים ונחזור אליכם עם הצעות לחבילות ', 'bt') }}</h2>
+						{{ fn('do_shortcode', '[contact-form-7 id="361" title="טופס השוואת חבילות"]') }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{% include 'partials/newsletter.twig' %}
+{% endblock %}

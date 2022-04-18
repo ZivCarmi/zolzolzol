@@ -1,0 +1,25 @@
+<ul class="companies-list">
+	{% for company in companies %}
+		{% set company_logo_id = company.company_logo.id ? company.company_logo.id : get_term_meta(company.term_id, 'company_logo', true) %}
+		<li class="company" {{ no_animation is defined ? '' : ' data-aos="fade-down" data-aos-duration="600"' }}>
+			{% if as_checkboxes is defined %}
+				<label>
+					<input type="checkbox" data-company="{{ company.name }}" data-email="{{ company.comp_email }}">
+					<img src="{{ Image(company_logo_id).src }}" alt="{{ Image(company_logo_id).alt }}" width="213" height="125" loading="lazy">
+				</label>
+			{% else %}
+				{% if is_product_category() %}
+					<a href="{{ constant('BPATH') }}/product-category/{{ urldecode(get_queried_object().slug) }}/filters/companies/{{ urldecode(company.slug) }}">
+						{% set image = Image(get_term_meta(company.term_id, 'company_logo', true)) %}
+						<img src="{{ image.src }}" alt="{{ image.alt }}" width="213" height="125" loading="lazy">
+					</a>
+				{% else %}
+					<a href="{{ constant('BPATH') }}/product-category/{{ category_slug }}/filters/companies/{{ urldecode(company.slug) }}">
+						{% set image = Image(get_term_meta(company.term_id, 'company_logo', true)) %}
+						<img src="{{ image.src }}" alt="{{ image.alt }}" width="213" height="125" loading="lazy">
+					</a>
+				{% endif %}
+			{% endif %}
+		</li>
+	{% endfor %}
+</ul>

@@ -1,0 +1,25 @@
+<div class="choose-{{taxonomy}} compare-box">
+	<h3 class="title">{{ esc_html__('בחר ' ~ title, 'bt') }}</h3>
+	<div class="{{taxonomy}} taxonomy" data-taxonomy={{ taxonomy }}>
+		<div class="choose-box">
+			<button type="button" class="toggle-btn">
+				{{ esc_html__('הוסף / הורד ' ~ title) }}
+				<span class="icon-chevron-down"></span>
+			</button>
+			<form action="" method="get">
+				<ul class="select-list">
+					<input type="hidden" name="selected">
+					{% for term in terms %}
+						<li class="track">
+							<label class="select-term">
+								<input type="checkbox" name="{{ term.term_id }}">
+								<span class="term-name">{{ term.name }}</button>
+							</label>
+						</li>
+					{% endfor %}
+				</ul>
+			</form>
+		</div>
+		<div class="selected-terms"></div>
+	</div>
+</div>

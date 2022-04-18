@@ -1,0 +1,30 @@
+<div class="sub-block" data-categories="{{ categories }}">
+	<div class="sub-block-inner">
+		<div class="package-big-details">
+			{% if big_package_info %}
+				<h3 class="package-details-title">{{ esc_html__('פרטי החבילה', 'bt') }}</h3>
+				<ul class="big-info-list">
+					{% for package_info in big_package_info %}
+						<li class="{{ package_info.display_info_as }}">
+							{% if package_info.display_info_as == 'label' %}
+								{% if package_info.label %}
+									<span class="label">{{ fn('str_replace', ':', '', package_info.label) }}:</span>
+								{% endif %}
+								<span class="value">{{ package_info.value }}</span>
+							{% elseif package_info.display_info_as == 'content' %}
+								<div class="content wnm">{{ package_info.content }}</div>
+							{% endif %}
+						</li>
+					{% endfor %}
+				</ul>
+			{% endif %}
+		</div>
+
+		{% if is_product_category() or is_tax('companies') %}
+			<div class="form">
+				<h3 class="form-title">{{ fn('nl2br', esc_html__('מלאו פרטים\n לשיחה עם נציג', 'bt')) }}</h3>
+				{{ fn('do_shortcode', '[contact-form-7 id="316" title="טופס חבילה"]') }}
+			</div>
+		</div>
+	{% endif %}
+</div>

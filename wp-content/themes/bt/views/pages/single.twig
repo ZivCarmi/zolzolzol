@@ -1,0 +1,46 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% include 'partials/main-banner.twig' %}
+
+	<div class="single container-1140">
+		<div class="single-inner">
+			<div class="content wnm">{{ page.content }}</div>
+			<div class="sidebar">
+				<div class="shop-categories">
+					<h2 class="title">{{ esc_html__('קטגוריות חנות', 'bt') }}</h2>
+					<ul class="shop-categories-list">
+						{% for category in shop_categories %}
+							<li class="shop-category">
+								<a href="{{ urldecode(get_category_link(category.term_id)) }}">{{ category.name }}</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+				<div class="posts">
+					<h2 class="title">{{ esc_html__('כתבות שאולי יעניינו אותך', 'bt') }}</h2>
+					<ul class="posts-list">
+						{% for post in posts %}
+							<li class="post">
+								<a href="{{ urldecode(get_the_permalink(post.ID)) }}">
+									<img src="{{ Image(post._thumbnail_id).src }}" alt="{{ Image(post._thumbnail_id).alt }}" width="360" height="200" loading="lazy">
+									{{ post.post_title }}
+								</a>
+							</li>
+						{% endfor %}
+					</ul>
+				</div>
+			</div>
+			<div class="form">
+				<h3 class="title">{{ form_main_title }}</h2>
+				<div class="subtitle">{{ form_subtitle }}</div>
+				<div class="select-companies">
+					{% include 'partials/companies-grid.twig' with {companies: cellular_companies, as_checkboxes, no_animation} %}
+				</div>
+				{{ fn('do_shortcode', '[contact-form-7 id="349" title="טופס הוזלת חבילות סלולר"]') }}
+			</div>
+		</div>
+	</div>
+
+	{% include 'partials/newsletter.twig' %}
+{% endblock %}

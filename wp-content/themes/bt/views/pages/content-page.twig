@@ -1,0 +1,19 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	{% include 'partials/main-banner.twig' %}
+
+	<div class="content-page container-1140">
+		<h2 class="title">{{ page.meta('main_title') }}</h2>
+		<div class="content wnm">{{ page.meta('main_content') }}</div>
+
+		{% if fn('is_page', 529) %}
+			<div class="form">
+				<div class="form-title .wnm">{{ page.meta('form_content') }}</div>
+				{{ fn('do_shortcode', '[contact-form-7 id="531" title="טופס צור קשר"]') }}
+			</div>
+		{% endif %}
+	</div>
+
+	{% include 'partials/newsletter.twig' %}
+{% endblock %}

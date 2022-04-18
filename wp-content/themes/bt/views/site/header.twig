@@ -1,0 +1,68 @@
+<!doctype html>
+<html {{ fn('language_attributes') }}>
+	<head>
+		{% do action('bt_html_head_start') %}
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<link rel="icon" href="data:,">
+		{{ fn('wp_head') }}
+		{% do action('bt_html_head_end') %}
+	</head>
+	<body {{ fn('body_class') }}>
+		{% do action('bt_html_body_start') %}
+
+		<header class="site-header">
+			<div class="header-inner container-1140">
+				<div class="top">
+					<div class="search">
+						{% include 'partials/search.twig' %}
+					</div>
+					<div class="header-links">
+						<ul class="links-list">
+							<li class="user">
+								<a href="{{ options.user_link.url }}" title="החשבון שלי">
+									<img src="{{ Image(options.user_icon).src }}" alt="{{ Image(options.user_icon).alt }}">
+								</a>
+							</li>
+							{% for link in options.header_links %}
+								<li>
+									<a href="{{ link.link.url }}" target="{{ link.link.target }}">{{ link.link.title }}</a>
+								</li>
+							{% endfor %}
+						</ul>
+						{% include 'partials/header-logo.twig' %}
+					</div>
+				</div>
+				<div class="bottom">
+					<nav>
+						{% include 'components/nav-menu.twig' with {items: bt.menus.header.get_items} %}
+					</nav>
+				</div>
+			</div>
+		</header>
+
+		<header class="fixed-header">
+			<div class="header-inner container-1140">
+				<div class="mobile">
+					<div class="mobile-inner">
+						<button type="button" class="hamburger">
+							<div class="hamburger-inner"></div>
+						</button>
+						{% include 'partials/header-logo.twig' %}
+						<div class="search">
+							<button type="button" class="open-search">
+								<span class="icon-search"></span>
+							</button>
+							<div class="search-inner">
+								{% include 'partials/search.twig' %}
+							</div>
+						</div>
+					</div>
+				</div>
+				<nav>
+					{% include 'components/nav-menu.twig' with {items: bt.menus.header.get_items} %}
+				</nav>
+			</div>
+		</header>
+
+		<main class="site-wrap">

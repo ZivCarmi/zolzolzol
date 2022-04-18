@@ -1,0 +1,103 @@
+{% extends 'base.twig' %}
+
+{% block content %}
+	<div class="banners">
+		<ul class="banners-list" data-slides="{{ fn('count', page.meta('top_banners')) }}" dir="ltr">
+			{% for banner in page.meta('top_banners') %}
+				<li class="banner" {{ banner.bg_color ? 'style="background-color:' ~ banner.bg_color ~ '"' : '' }}>
+					<div class="banner-wrapper container-1140" dir="rtl">
+						<div class="banner-info">
+							<h3 class="big-title" style="color:{{ banner.big_title_color ? banner.big_title_color : '#FFFFFF' }}">{{ banner.big_title }}</h3>
+							<div class="small-title" style="color:{{ banner.small_title_color ? banner.small_title_color : 'var(--pale-blue)' }}">{{ banner.small_title }}</div>
+							<div class="banner-link">
+								<a href="{{ banner.link.url }}" style="background-color:{{ banner.link_bgc ? banner.link_bgc : 'var(--pink)' }}; color:{{ banner.link_color ? banner.link_color : '#FFFFFF' }}">{{ banner.link.title }}</a>
+							</div>
+						</div>
+						<div class="banner-img">
+							<img src="{{ Image(banner.banner.id).src }}" alt="{{ Image(banner.banner.id).alt }}">
+						</div>
+					</div>
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="welcome-box">
+		<div class="bg-wrapper">
+			<img src="{{ Image(page.meta('bg_image')).src }}" alt="{{ Image(page.meta('bg_image')).alt }}" width="1920" height="1280" loading="lazy">
+			<div class="bg-overlay"></div>
+		</div>
+
+		<div class="box-content">
+			<div class="after-banner-ft container-900">
+				<h1 class="ft-title" style="color:{{ page.meta('after_banner_ftt').color }};">{{ page.meta('after_banner_ftt').title }}</h1>
+				<div class="wnm ft-content" style="color:{{ page.meta('after_banner_ftc').color }};">{{ page.meta('after_banner_ftc').content }}</div>
+			</div>
+
+			<div class="shop-categories container-920" data-aos="fade-down" data-aos-duration="800">
+				<ul class="categories-list">
+					{% for category in page.meta('categories_boxes') %}
+						{% set image = Image(get_term_meta(category.id, 'thumbnail_id', true)) %}
+						<li class="category">
+							<a href="{{ urldecode(get_category_link(category.id)) }}">
+								<img src="{{ image.src }}" alt="{{ image.alt }}" width="220" height="110" loading="lazy">
+								<div class="name">{{ category.name }}</div>
+							</a>
+						</li>
+					{% endfor %}
+					{% if page.meta('normal_pages') %}
+						{% for page in page.meta('normal_pages') %}
+							<li class="category">
+								<a href="{{ urldecode(get_the_permalink(page.id)) }}">
+									<img src="{{ Image(page.custom.illustration_image).src }}" alt="{{ Image(page.custom.illustration_image).alt }}">
+									<div class="name">{{ page.post_title }}</div>
+								</a>
+							</li>
+						{% endfor %}
+					{% endif %}
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="categories-dropdown container-1140">
+		<h2 class="categories-title">
+			{{ page.meta('companies_section_title') }}
+			<img src="{{ Image(page.meta('companies_section_image').id).src }}" alt="{{ Image(page.meta('companies_section_image').id).alt }}">
+		</h2>
+		<ul class="categories-dd-list">
+			{% for category in page.meta('companies_to_choose') %}
+				<li class="category-dd">
+					{% include 'partials/heading-with-toggle.twig' with {tag: 'h3', link: urldecode(get_category_link(category.id)), name: category.name} %}
+					{% include 'partials/companies-grid.twig' with {companies: category.product_cat_companies, category_slug: urldecode(category.slug)} %}
+				</li>
+			{% endfor %}
+		</ul>
+	</div>
+
+	<div class="free-text container-1140">
+		<h2 class="free-text-title">{{page.meta('free_text_title')}}</h2>
+		<div class="free-text-content wnm">{{page.meta('free_text_content')}}</div>
+	</div>
+
+	<div class="articles container-1140">
+		<h2 class="articles-title">{{page.meta('articles_titles')}}</h2>
+		<ul class="posts">
+			{% for post in page.meta('articles_posts') %}
+				<li class="post" data-aos="fade-up" data-aos-duration="600">
+					<a href="{{ urldecode(get_the_permalink(post.id)) }}">
+						<img src="{{ Image(post._thumbnail_id).src }}" alt="{{ Image(post._thumbnail_id).alt }}" width="360" height="200" loading="lazy">
+						<h4 class="post-title">{{ post.post_title }}</h4>
+						<div class="wnm">{{ fn('wp_trim_words', post.post_content, 23) }}</div>
+						<span class="read-more">{{ esc_html__('קרא עוד', 'bt') }}</span>
+					</a>
+				</li>
+			{% endfor %}
+		</ul>
+		<div class="to-blog">
+			<a href="{{ get_permalink(fn('get_option', 'page_for_posts')) }}">{{ esc_html__('לכל הכתבות', 'bt') }}</a>
+		</div>
+	</div>
+
+	{% include 'partials/newsletter.twig' %}
+{% endblock %}

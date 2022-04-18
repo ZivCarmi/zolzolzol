@@ -1,0 +1,12 @@
+<div class="newsletter" {{ options.newsletter_bgc ? 'style="background-color:' ~ options.newsletter_bgc ~ ';"' : '' }}>
+	<div class="newsletter-inner container-1140">
+		<div class="image">
+			<img src="{{ Image(options.newsletter_image.id).src }}" alt="{{ Image(options.newsletter_image.id).alt }}">
+		</div>
+		<div class="form">
+			<div class="big-title">{{ options.newsletter_big_title }}</div>
+			<div class="content wnm">{{ options.newsletter_content }}</div>
+			{{ fn('do_shortcode', '[contact-form-7 id="13" title="ניוזלטר"]') }}
+		</div>
+	</div>
+</div>
